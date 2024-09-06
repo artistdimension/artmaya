@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+  :root {
+    --background: 27 27 27;
+    --foreground: 225 225 225;
+    --muted: 115 115 115;
+    --accent: 254 254 91; 
+    /* #FEFE5B */
+    
+  }
+}
+
+
+@layer utilities {
+  .pause{
+    animation-play-state: paused;
+    
+}
+
+.custom-bg{
+ @apply bg-background/20 border border-accent/30 border-solid hover:text-yellow-500 backdrop-blur-[6px] shadow-glass-inset hover:shadow-glass-sm;
+
+ 
+}
+
+.custom-cursor{
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: white;
+
+}
+.cursor-text{
+  font-size: 5px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  display: none;
+
+
+
+
+}
+ 
+}
+
+
+
+@keyframes move{
+  0%{
+    transform: translate(0,0);
+ }
+  100%{
+    transform: translate(100px,100px);
+}
+
+}
+
+.loader-container {
+ top: 0px;
+ left: 0px;
+ position: fixed;
+ text-align: center;
+ background-color: #000;
+ width: 100%;
+ height: 100%;
+ z-index: 1051;
+ opacity: 0.5;
+ 
+}
+
+.loader-container .spinner {
+animation: rotate 2s linear infinite;
+z-index: 2;
+position: absolute;
+top: 50%;
+left: 50%;
+margin: -25px 0 0 -25px;
+width: 50px;
+height: 50px;
+}
+
+
+.loader-container .spinner .path{
+ stroke: #93bfec;
+ stroke-linecap: round;
+ animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100%{
+    transform: rotate(360deg);
+  }
+  
+}
+@keyframes dash {
+  0%{
+
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+}
+50%{
+
+  stroke-dasharray: 90,150;
+  stroke-dashoffset: -35;
+}
+100%{
+ stroke-dasharray: 90,150;
+ stroke-dashoffset: -124;
+
+}
+
+
+
+}
+
+  
